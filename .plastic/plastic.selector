@@ -1,0 +1,4 @@
+repository "Mini-Jogo/Mini-Jogo@6872808243345@cloud"
+  path "/"
+    br "/main"
+    co "/main"
