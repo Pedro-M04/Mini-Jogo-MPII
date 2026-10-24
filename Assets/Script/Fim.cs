@@ -1,13 +1,26 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necessário se quiseres reiniciar ou mudar de nível
+using UnityEngine.SceneManagement;
 
 public class Fim : MonoBehaviour
 {
     [Header("Configurações")]
-    public string playerTag = "Player";          // Tag do sapo
-    public float restartDelay = 2f;             // Tempo de espera antes de reiniciar/passar de nível
+    public string playerTag = "Player";
+    public float restartDelay = 2f;
+
+    [Header("Aúdio")]
+    public AudioClip victorySound;
+    private AudioSource audioSource;
 
     private bool hasReached = false;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +31,12 @@ public class Fim : MonoBehaviour
             Player frog = other.GetComponent<Player>();
             if (frog != null)
             {
-                RestartGame();
+                if (victorySound != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(victorySound);
+                }
+
+                Invoke("RestartGame", restartDelay);
             }
         }
     }

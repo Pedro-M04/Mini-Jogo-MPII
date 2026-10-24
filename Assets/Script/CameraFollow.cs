@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [Header("Alvo")]
+    [Header("Player")]
     public Transform player;
 
     [Header("Configurações")]
@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
     private float currentRotationOffset = 0f;
     private bool inicia = false;
 
-    [Header("Remover Objetos com Espaço")]
+    [Header("Remover Objetos")]
     public GameObject[] objectsToRemove; 
     private bool objectsRemoved = false;
 

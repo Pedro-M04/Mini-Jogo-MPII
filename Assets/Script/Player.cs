@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header("Configurações de Salto")]
+    [Header("Salto")]
     public float moveDistance = 1.0f;
     public float jumpDuration = 0.15f;
     public float jumpHeight = 0.4f;
 
-    [Header("Áudio de Salto")]
+    [Header("Aúdio")]
     public AudioClip jumpSound;
     private AudioSource audioSource;
 
