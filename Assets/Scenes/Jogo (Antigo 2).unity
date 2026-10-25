@@ -9146,8 +9146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4d1d813e8321741a22326a90f5c154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
-  playerTag: Player
-  restartDelay: 2
 --- !u!65 &348413729
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14003,6 +14001,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 608428403}
+  - component: {fileID: 608428404}
+  - component: {fileID: 608428405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14027,6 +14027,42 @@ Transform:
   - {fileID: 2083215199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &608428404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608428402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508ed017ab2f8b4498d6ba0ba817ac39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tween
+  point: {fileID: 0}
+  duration: 0.5
+  ease: 4
+  curve:
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &608428405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608428402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75bd6a76c0a11d4f9ce9ec63f6292dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  moveDistance: 1
+  jumpDuration: 0.15
+  jumpHeight: 0.4
+  jumpSound: {fileID: 0}
 --- !u!1001 &616150435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28673,8 +28709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd494c696eaf0274182fc0c77c8a8b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelCountdownUI
-  timeLimit: 30
-  timerText: {fileID: 1220713007}
 --- !u!114 &1198316530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38857,12 +38891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee28cdf85c98354fb077d0a89f2705d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogCollisionHandler
-  obstacleTag: Obstacle
-  deathDelay: 1.5
-  knockbackForce: 5
-  upForce: 10.96
-  rotationSpeed: 720
-  deathSound: {fileID: 8300000, guid: f299559003cd68c4db85b9aad42982f9, type: 3}
 --- !u!82 &1605771335
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38960,6 +38988,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1605771338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605771321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9533f63ccf65ca4bbaa0912864a1ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScaleBounce
+  targetScaleMultiplier: 1.2
+  duration: 0.15
+  heightOffsetCorrection: 0.5
 --- !u!1001 &1609913958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39563,6 +39606,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2603050615286232972, guid: e22d993627d29304ca0587c6e341d752, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1605771335}
+    - targetCorrespondingSourceObject: {fileID: 2603050615286232972, guid: e22d993627d29304ca0587c6e341d752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1605771338}
   m_SourcePrefab: {fileID: 100100000, guid: e22d993627d29304ca0587c6e341d752, type: 3}
 --- !u!4 &1634166761 stripped
 Transform:
@@ -51231,6 +51277,8 @@ GameObject:
   - component: {fileID: 2083215197}
   - component: {fileID: 2083215200}
   - component: {fileID: 2083215201}
+  - component: {fileID: 2083215202}
+  - component: {fileID: 2083215203}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -51381,6 +51429,38 @@ MonoBehaviour:
   - {fileID: 518592796}
   - {fileID: 141526395}
   - {fileID: 1145328716}
+--- !u!114 &2083215202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083215196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814afac2cdc75f744a78c6ef422346c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  duration: 0.15
+  strength: 0.08
+  vibrato: 15
+  originalPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &2083215203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083215196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a83a2435e5d544cbaa5b1d49f6d127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeWASD
+  duration: 0.2
+  strength: 0.02
+  vibrato: 5
+  randomness: 1
 --- !u!1001 &2086467078
 PrefabInstance:
   m_ObjectHideFlags: 0
