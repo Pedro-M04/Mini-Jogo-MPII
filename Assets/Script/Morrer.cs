@@ -39,6 +39,7 @@ public class Morrer : MonoBehaviour // Substitua pelo nome real da sua classe se
         if (!isDead && other.CompareTag(obstacleTag))
         {
             StartCoroutine(DieSequence());
+            GetComponent<PlayerDissolve>().StartDissolveDeath();
         }
     }
 
