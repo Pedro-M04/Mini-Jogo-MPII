@@ -831,7 +831,7 @@ RectTransform:
   m_GameObject: {fileID: 809158149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0798, y: 2.0798, z: 2.0798}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1733153324}
@@ -905,7 +905,7 @@ RectTransform:
   m_GameObject: {fileID: 1234159676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8063, y: 1.8063, z: 1.8063}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 547167027}
@@ -913,7 +913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00069809, y: -100}
+  m_AnchoredPosition: {x: 0.00069809, y: -238}
   m_SizeDelta: {x: 257.51, y: 48.283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234159678
@@ -1097,14 +1097,14 @@ RectTransform:
   m_GameObject: {fileID: 1425216834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8558, y: 1.8558, z: 1.8558}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1733153324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 157.57767}
+  m_AnchoredPosition: {x: 0, y: 325}
   m_SizeDelta: {x: 827.9717, y: 99.2775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425216836
@@ -1282,7 +1282,7 @@ RectTransform:
   m_GameObject: {fileID: 1584472666}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4526, y: 1.4526, z: 1.4526}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 316959810}
@@ -1290,7 +1290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0006485, y: 0}
+  m_AnchoredPosition: {x: 0.0006485, y: -138}
   m_SizeDelta: {x: 335.9622, y: 62.9929}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584472668
@@ -1346,7 +1346,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Jogo
+          m_StringArgument: nivel2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1584472669

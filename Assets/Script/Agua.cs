@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,27 +12,24 @@ public class Agua : MonoBehaviour
     [Tooltip("Prefab do efeito VFX (Water_Splash_B).")]
     public GameObject efeitoSplash; // Arrasta o teu prefab para aqui no Inspector
 
+    [Tooltip("Escala a aplicar ao efeito de splash ao instanciar.")]
+    public float escalaDoSplash = 1.5f; // Podes ajustar este valor no Inspector
+
     [Tooltip("Tempo em segundos de espera (animação/áudio/efeito) antes de reiniciar a cena.")]
     public float tempoDeEspera = 1.5f;
 
     // Variável para evitar que a morte seja acionada várias vezes
     private bool jogadorMorreu = false;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    [Header("Áudio de Morte")]
+    public AudioClip deathSound;
+    private AudioSource audioSource;
+
+    void Start()
     {
-        if (!jogadorMorreu && collision.gameObject.CompareTag(tagDoJogador))
-        {
-            IniciarMorte(collision.gameObject);
-        }
+        audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!jogadorMorreu && collision.CompareTag(tagDoJogador))
-        {
-            IniciarMorte(collision.gameObject);
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -52,17 +50,14 @@ public class Agua : MonoBehaviour
     void IniciarMorte(GameObject jogador)
     {
         jogadorMorreu = true;
-        Debug.Log("O jogador morreu! A instanciar o splash e a reiniciar...");
 
         // 1. CRIAR O EFEITO DE SPLASH NA POSIÇÃO DO JOGADOR
         if (efeitoSplash != null)
         {
-            // Instancia o efeito na posição e rotação atual do jogador
-            Instantiate(efeitoSplash, jogador.transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning("O prefab 'efeitoSplash' não foi atribuído no Inspector!");
+            GameObject splashInstanciado = Instantiate(efeitoSplash, jogador.transform.position, Quaternion.identity);
+
+            audioSource.PlayOneShot(deathSound);
+            splashInstanciado.transform.localScale = Vector3.one * escalaDoSplash;
         }
 
         // 2. FAZER O JOGADOR DESAPARECER COMPLETAMENTE:

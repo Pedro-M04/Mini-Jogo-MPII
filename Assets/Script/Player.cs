@@ -1,30 +1,30 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header("Configurações de Salto")]
+    [Header("Movimento")]
+    private Transform player;
     public float moveDistance = 1.0f;
     public float jumpDuration = 0.15f;
     public float jumpHeight = 0.4f;
-
-    [Header("Áudio de Salto")]
-    public AudioClip jumpSound;
-    private AudioSource audioSource;
-
     private bool isJumping = false;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
+        player = GetComponent<Transform>();
     }
 
     void Update()
     {
+        // Movimento:
+        
+        if (Input.anyKeyDown)
+        {
+            player.DORotate(new Vector3(0, 0, 360), 0.8f, RotateMode.WorldAxisAdd).SetEase(Ease.InOutQuad);
+        }
+
         if (isJumping) return;
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
@@ -45,14 +45,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Corrontina do salto:
     IEnumerator JumpRoutine(Vector3 direction, float targetYRotation)
     {
         isJumping = true;
-
-        if (jumpSound != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(jumpSound);
-        }
 
         Vector3 startPosition = transform.position;
         Vector3 targetPosition = startPosition + (direction * moveDistance);
@@ -67,7 +63,6 @@ public class Player : MonoBehaviour
             Vector3 currentPos = Vector3.Lerp(startPosition, targetPosition, t);
 
             currentPos.y += Mathf.Sin(t * Mathf.PI) * jumpHeight;
-
             transform.position = currentPos;
 
             yield return null;
