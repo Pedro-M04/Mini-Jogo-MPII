@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,6 +32,7 @@ public class Morrer : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,6 +56,16 @@ public class Morrer : MonoBehaviour
         if (moveScript != null) moveScript.enabled = false;
         GetComponent<Collider>().enabled = false;
 
+<<<<<<< Updated upstream
+=======
+        Camera.main.transform.DOShakePosition(0.4f, strength: 0.5f, vibrato: 14);
+
+        // Roda loucamente e diminui a escala até desaparecer
+        transform.DORotate(new Vector3(360, 720, 0), 0.5f, RotateMode.FastBeyond360);
+        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
+
+        // 3. Aplicar Física (Empurrão e Pulo)
+>>>>>>> Stashed changes
         if (rb != null)
         {
             rb.isKinematic = false;

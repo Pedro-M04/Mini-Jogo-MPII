@@ -1,7 +1,8 @@
+using DG.Tweening;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
-using System.Collections;
 
 public class Tempo : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class Tempo : MonoBehaviour
         {
             timerText.gameObject.SetActive(false);
         }
+        // Coloca no Start() do teu LevelCountdownUI
+        timerText.transform.localScale = Vector3.zero;
+        timerText.transform.DOScale(Vector3.one, 0.6f).SetEase(Ease.OutBack);
+
+
     }
 
     void Update()
@@ -53,7 +59,16 @@ public class Tempo : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
 
             currentTime -= 1.0f;
+<<<<<<< Updated upstream
             UpdateTimerUI();
+=======
+            UpdateTimerUI(); // Atualiza o texto no ecrã
+
+            if (currentTime <= 5f && timerText != null)
+            {
+                timerText.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
+            }
+>>>>>>> Stashed changes
         }
 
         if (currentTime <= 0)

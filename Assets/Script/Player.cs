@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(JumpRoutine(Vector3.back, 0f));
         }
+
     }
 
     IEnumerator JumpRoutine(Vector3 direction, float targetYRotation)
@@ -71,9 +74,13 @@ public class Player : MonoBehaviour
             transform.position = currentPos;
 
             yield return null;
+           
+            
         }
 
         transform.position = targetPosition;
         isJumping = false;
+
+        transform.DOPunchScale(new Vector3(0.15f, -0.15f, 0.15f), jumpDuration);
     }
 }
