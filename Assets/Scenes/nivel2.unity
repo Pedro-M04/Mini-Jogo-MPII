@@ -848,11 +848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8206393780791148591, guid: 90c39d39c7904474ea2554288d4018da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.015
+      value: 5.07
       objectReference: {fileID: 0}
     - target: {fileID: 8206393780791148591, guid: 90c39d39c7904474ea2554288d4018da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.9099998
+      value: -2.91
       objectReference: {fileID: 0}
     - target: {fileID: 8206393780791148591, guid: 90c39d39c7904474ea2554288d4018da, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3160,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624367759318784293, guid: 7ad27798a56af29409bfd87e866e6458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.015
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 624367759318784293, guid: 7ad27798a56af29409bfd87e866e6458, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5432,8 +5432,8 @@ MonoBehaviour:
   moveDistance: 4
   jumpDuration: 0.5
   jumpHeight: 3
-  JumpParticles: {fileID: 6862352344119093026, guid: 062139f91add7204db5702ef4224d92e, type: 3}
-  LandingParticles: {fileID: 4026322514297485780, guid: 60c1e4ae28b10c04ea96de755a92c2a1, type: 3}
+  JumpParticles: {fileID: 7756405144918193497, guid: 80c030b8b580ce747855d601ae276558, type: 3}
+  LandingParticles: {fileID: 5868090738502351995, guid: e8b9d683cb1ffdb4b830536a003e98da, type: 3}
 --- !u!54 &1605771330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5500,9 +5500,9 @@ MonoBehaviour:
   upForce: 10.96
   rotationSpeed: 720
   deathSound: {fileID: 8300000, guid: f299559003cd68c4db85b9aad42982f9, type: 3}
-  crashParticle: {fileID: 4080023730749915405, guid: 9f8126c5f13b2364aa25fc032c8fd2bb, type: 3}
-  shakeDuration: 0.3
-  shakeStrength: 0.4
+  crashParticle: {fileID: 6203879326198886339, guid: ad731358eaffea94f88482eaf9fa8dc8, type: 3}
+  shakeDuration: 0
+  shakeStrength: 0
 --- !u!82 &1605771335
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5659,7 +5659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e22d993627d29304ca0587c6e341d752, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e22d993627d29304ca0587c6e341d752, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5667,7 +5667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e22d993627d29304ca0587c6e341d752, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.051
+      value: 0.0531
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e22d993627d29304ca0587c6e341d752, type: 3}
       propertyPath: m_LocalRotation.w
