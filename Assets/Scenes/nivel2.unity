@@ -5432,6 +5432,8 @@ MonoBehaviour:
   moveDistance: 4
   jumpDuration: 0.5
   jumpHeight: 3
+  JumpParticles: {fileID: 6862352344119093026, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+  LandingParticles: {fileID: 4026322514297485780, guid: 60c1e4ae28b10c04ea96de755a92c2a1, type: 3}
 --- !u!54 &1605771330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5498,6 +5500,9 @@ MonoBehaviour:
   upForce: 10.96
   rotationSpeed: 720
   deathSound: {fileID: 8300000, guid: f299559003cd68c4db85b9aad42982f9, type: 3}
+  crashParticle: {fileID: 4080023730749915405, guid: 9f8126c5f13b2364aa25fc032c8fd2bb, type: 3}
+  shakeDuration: 0.3
+  shakeStrength: 0.4
 --- !u!82 &1605771335
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5519,7 +5524,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.9696598
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

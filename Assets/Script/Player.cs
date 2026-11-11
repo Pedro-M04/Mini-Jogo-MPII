@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public float jumpHeight = 0.4f;
     private bool isJumping = false;
 
+    [Header("Efeitos de Partículas")]
+    public GameObject JumpParticles;    // Partículas ao saltar (partida)
+    public GameObject LandingParticles; // Partículas ao aterrar (chegada)
+    
     void Start()
     {
         player = GetComponent<Transform>();
@@ -48,6 +52,10 @@ public class Player : MonoBehaviour
     // Corrontina do salto:
     IEnumerator JumpRoutine(Vector3 direction, float targetYRotation)
     {
+        if (JumpParticles != null)
+        {
+            Instantiate(JumpParticles, transform.position, Quaternion.identity);
+        }
         isJumping = true;
 
         Vector3 startPosition = transform.position;
@@ -68,7 +76,13 @@ public class Player : MonoBehaviour
             yield return null;
         }
 
+        transform.DOJump(transform.position + direction, 1f, 1, 0.2f);
         transform.position = targetPosition;
         isJumping = false;
+
+        if (LandingParticles != null)
+        {
+            Instantiate(LandingParticles, transform.position, Quaternion.identity);
+        }
     }
 }

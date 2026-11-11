@@ -1850,7 +1850,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MortePorContato
   tagDoJogador: Player
   efeitoSplash: {fileID: 3323387954473017891, guid: 0b912e9003fba894faa88cf964a6fb8a, type: 3}
+  escalaDoSplash: 1.5
   tempoDeEspera: 0.5
+  deathSound: {fileID: 0}
 --- !u!65 &73078460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14310,7 +14312,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MortePorContato
   tagDoJogador: Player
   efeitoSplash: {fileID: 0}
+  escalaDoSplash: 1.5
   tempoDeEspera: 1.5
+  deathSound: {fileID: 0}
 --- !u!65 &634479843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28435,7 +28439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelCountdownUI
   timeLimit: 30
+  tempo: {fileID: 0}
   timerText: {fileID: 1220713007}
+  som: {fileID: 0}
 --- !u!114 &1198316530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28629,7 +28635,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MortePorContato
   tagDoJogador: Player
   efeitoSplash: {fileID: 0}
+  escalaDoSplash: 1.5
   tempoDeEspera: 1.5
+  deathSound: {fileID: 0}
 --- !u!65 &1200186810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38515,7 +38523,7 @@ MonoBehaviour:
   moveDistance: 2
   jumpDuration: 0.15
   jumpHeight: 0.8
-  jumpSound: {fileID: 8300000, guid: a813ef0e6bbe4d44d9dfa50ce646d1d7, type: 3}
+  JumpParticles: {fileID: 0}
 --- !u!54 &1605771330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51107,10 +51115,6 @@ MonoBehaviour:
   cameraAngleZ: 0
   rotationAmount: 30
   rotationSpeed: 5
-  objectsToRemove:
-  - {fileID: 518592796}
-  - {fileID: 141526395}
-  - {fileID: 1145328716}
 --- !u!1001 &2086467078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52899,6 +52903,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccab6c8306a6dae4d9688eb372e59639, type: 3}
+--- !u!1001 &335026348165856416
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6862352344119093026, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_Name
+      value: JumpParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420829751684405580, guid: 062139f91add7204db5702ef4224d92e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 062139f91add7204db5702ef4224d92e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -53523,3 +53584,4 @@ SceneRoots:
   - {fileID: 634479841}
   - {fileID: 1200186808}
   - {fileID: 73078458}
+  - {fileID: 335026348165856416}

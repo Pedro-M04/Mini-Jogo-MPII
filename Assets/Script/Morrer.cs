@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,11 @@ public class Morrer : MonoBehaviour // Substitua pelo nome real da sua classe se
     [Header("Áudio de Morte")]
     public AudioClip deathSound;              // Arquivo de som da morte
     private AudioSource audioSource;          // Componente de áudio
+
+    [Header("Efeitos de Colisão/Impacto")]
+    public GameObject crashParticle;    // Arrasta o prefab de partículas de colisão para aqui
+    public float shakeDuration = 0.3f;        // Duração do tremor de câmara
+    public float shakeStrength = 0.4f;        // Intensidade do tremor
 
     private bool isDead = false;
     private Rigidbody rb;
@@ -36,6 +42,25 @@ public class Morrer : MonoBehaviour // Substitua pelo nome real da sua classe se
 
     private void OnTriggerEnter(Collider other)
     {
+        if (crashParticle != null)
+        {
+            // Instancia ligeiramente acima do chão ou na posição exata do sapo
+            Instantiate(crashParticle, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        }
+
+        // 2. TREMOR DE CÂMARA (Camera Shake) COM DOTWEEN
+        if (Camera.main != null)
+        {
+            Camera.main.transform.DOShakePosition(shakeDuration, shakeStrength, 10, 90f);
+        }
+
+        // 3. ATIVAR A DISSOLUÇÃO (se tiveres o script no sapo)
+        PlayerDissolve dissolveScript = GetComponent<PlayerDissolve>();
+        if (dissolveScript != null)
+        {
+            dissolveScript.StartDissolveDeath();
+        }
+
         if (!isDead && other.CompareTag(obstacleTag))
         {
             StartCoroutine(DieSequence());
